@@ -9,9 +9,9 @@ import Starred from "./pages/Starred";
 import Trash from "./pages/Trash";
 import Compose from "./components/Compose";
 import LoadingPage from "./pages/LoadingPage";
-import Account from "./pages/Account";
 
 import { useState } from "react";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ const App = () => {
     <Routes>
 
       {/* Login */}
-      <Route path="/account" element={<Account />} />
+      <Route path="/account" element={<SignUp  />} />
 
       {/* Main Application */}
       <Route
