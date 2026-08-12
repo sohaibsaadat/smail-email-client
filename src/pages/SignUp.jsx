@@ -5,7 +5,7 @@ import FilledInput from '@mui/material/FilledInput';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import SendIcon from '@mui/icons-material/Send';
-
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
      const {
@@ -16,6 +16,8 @@ const SignUp = () => {
   } = useForm()
     const [showPassword, setShowPassword] = React.useState(false);
       const [loading, setLoading] = React.useState(false);
+        const navigate = useNavigate();
+
 
 
     const outlinedWeightId = React.useId();
@@ -42,6 +44,7 @@ const SignUp = () => {
     setLoading(false);
   }, 2000);
   console.log(data)
+  navigate("/verifyEmail")
   } 
   return (
     <div className='flex flex-col w-full h-screen justify-center items-center'>
@@ -98,10 +101,14 @@ const SignUp = () => {
           loadingPosition="end"
           variant="contained"
         >
-          Send
+          Sign Up
         </Button>
 </form>
+<div>
+    <p>Already have an account? <strong className='cursor-pointer' onClick={()=>navigate("/login")} >Login Here</strong></p>
 </div>
+</div>
+
     
 
       

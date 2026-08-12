@@ -12,6 +12,9 @@ import LoadingPage from "./pages/LoadingPage";
 
 import { useState } from "react";
 import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import VerifyEmail from "./pages/VerifyEmail";
+import ForgetPasswordEmail from "./pages/ForgetPasswordEmail";
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -29,7 +32,10 @@ const App = () => {
     <Routes>
 
       {/* Login */}
-      <Route path="/account" element={<SignUp  />} />
+      <Route path="/signup" element={<SignUp  />} />
+      <Route path="/login" element={<Login  />} />
+      <Route path="/verifyEmail" element={<VerifyEmail  />} />
+      <Route path="/forgetPasswordEmail" element={<ForgetPasswordEmail  />} />
 
       {/* Main Application */}
       <Route
