@@ -6,6 +6,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import SendIcon from '@mui/icons-material/Send';
 import { useNavigate } from "react-router-dom";
+import api from '../axios/axios';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
      const {
@@ -14,6 +16,8 @@ const SignUp = () => {
     watch,
     formState: { errors },
   } = useForm()
+  const backendUrl = import.meta.env.VITE_BACKEND;
+
     const [showPassword, setShowPassword] = React.useState(false);
       const [loading, setLoading] = React.useState(false);
         const navigate = useNavigate();
@@ -33,18 +37,35 @@ const SignUp = () => {
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
   };
- const handleClick = () => {
- 
-};
 
-  const onSubmit = (data) => {
 
+  const signup = async (data) => {
      setLoading(true);
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000);
+try {
+    data.email = `${data.email}@smail.com`;
+
+const response = await api.post("/user/signup",data)
+
+    if (response.data.success) {
+        toast.success(response.data.message);
+        setLoading(false)
+      }
+  
+} catch (error) {
+   toast.error(
+        error.response?.data?.message || "Something went wrong!"
+      );
+ setLoading(false)
+
+      
+}
+
+
+
+
+    
   console.log(data)
-  navigate("/verifyEmail")
+  navigate("/login")
   } 
   return (
     <div className='flex flex-col w-full h-screen justify-center items-center'>
@@ -55,7 +76,7 @@ const SignUp = () => {
 <h1 className='text-4xl font-semibold  '>Create Your Account</h1>
 
 
-<form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col justify-center gap-4'>
+<form onSubmit={handleSubmit(signup)} className='w-full flex flex-col justify-center gap-4'>
     <div>
  <TextField {...register("firstName", { required: true })} className='w-full' id="outlined-basic" label="First Name" variant="outlined" />
        {errors.firstName && <span className='text-red-700 text-xs'>First Name is required</span>}
@@ -66,8 +87,8 @@ const SignUp = () => {
     </div>
 
      <FormControl sx={{  }} variant="outlined">
-          <OutlinedInput  {...register("userName", { required: {value:true,message:"Username is required"} ,  pattern: { value: /^[a-z0-9]+$/, message: "Only lowercase letters and numbers are allowed"}})} id={`${outlinedWeightId}-input`} endAdornment={<InputAdornment position="end">@smail.com</InputAdornment>} aria-describedby={`${outlinedWeightId}-helper-text`}  inputProps={{  'aria-label': 'weight', }} />
-           {errors.userName && <span className='text-red-700 text-xs'>{errors.userName.message}</span>}  
+          <OutlinedInput  {...register("email", { required: {value:true,message:"Email is required"} ,  pattern: { value: /^[a-z0-9]+$/, message: "Only lowercase letters and numbers are allowed"}})} id={`${outlinedWeightId}-input`} endAdornment={<InputAdornment position="end">@smail.com</InputAdornment>} aria-describedby={`${outlinedWeightId}-helper-text`}  inputProps={{  'aria-label': 'weight', }} />
+           {errors.email && <span className='text-red-700 text-xs'>{errors.email.message}</span>}  
     </FormControl>
      
   <FormControl  variant="outlined">

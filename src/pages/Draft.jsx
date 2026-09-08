@@ -5,13 +5,13 @@ import StarIcon from '@mui/icons-material/Star';
 import { useEmail } from '../context/EmailContext';
 const Draft = ({open}) => {
 
-  const {emails,selectedEmails,handleSelectEmail} = useEmail()
+  const {emails,selectedEmails,handleSelectEmail,handleEmailClick } = useEmail()
   
   const draftMails= emails.filter((email)=> email.folder === 'Draft')
     return (
      <div>
        {draftMails.map((email,index)=>(
-             <div key={index} className='flex border hover:shadow-2xl justify-between w-full  border-t-gray-200 border-l-0 border-r-0 border-b-gray-200 justify- px-5  items-center'>
+             <div onClick={()=>handleEmailClick(email.id)} key={email.id} className='flex border hover:shadow-2xl justify-between w-full  border-t-gray-200 border-l-0 border-r-0 border-b-gray-200 justify- px-5  items-center'>
           
             <div className='flex items-center w-[20%]  gap-2 '>
  <Checkbox

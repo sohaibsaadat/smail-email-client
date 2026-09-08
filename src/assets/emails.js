@@ -39,7 +39,9 @@ export const emails = [
     starred: false,
     important: true,
     folder: "Inbox",
-    hasAttachment: true,
+    attachments: [
+  { name: "Sohaib Ali CV.pdf", size: "615 KB", url: "/files/cv.pdf" }
+]
   },
   {
     id: 4,
@@ -66,7 +68,7 @@ export const emails = [
     read: false,
     starred: false,
     important: true,
-    folder: "Sent",
+    folder: "Inbox",
     hasAttachment: false,
   },
   {
@@ -81,8 +83,9 @@ export const emails = [
     starred: false,
     important: false,
     folder: "Inbox",
-    hasAttachment: false,
-  },
+  attachments: [
+  { name: "Sohaib Ali CV.pdf", size: "615 KB", url: "/files/cv.pdf" }
+]  },
   {
     id: 7,
     sender: "Sara Ahmed",
@@ -109,8 +112,9 @@ export const emails = [
     starred: true,
     important: true,
     folder: "Sent",
-    hasAttachment: false,
-  },
+  attachments: [
+  { name: "Sohaib Ali CV.pdf", size: "615 KB", url: "/files/cv.pdf" }
+]  },
   {
     id: 9,
     sender: "Zain Abbas",
@@ -137,8 +141,9 @@ export const emails = [
     starred: true,
     important: false,
     folder: "Sent",
-    hasAttachment: false,
-  },
+  attachments: [
+  { name: "Sohaib Ali CV.pdf", size: "615 KB", url: "/files/cv.pdf" }
+]  },
   {
   id: 11,
   sender: "Ahmed Ali",
@@ -158,15 +163,29 @@ export const emails = [
   sender: "Sara Ahmed",
   email: "sara.ahmed@gmail.com",
   subject: "Meeting Reminder",
-  body: "Just a reminder about tomorrow's meeting at 11:00 AM. Looking forward to seeing you.",
+  body:  `I am writing to express my interest in opportunities related to Frontend, Backend, or Full-Stack development within your organization. I am a motivated MERN Stack developer with hands-on experience in building responsive,  and user-focused web applications.
+
+I have practical experience working with MongoDB, Express.js, React.js, and Node.js, along with strong command of HTML, CSS, JavaScript, RESTful APIs, and modern frontend practices. On the frontend, I focus on clean UI, performance, and usability. On the backend, I work with API development, authentication, database design, and server-side logic. As a full-stack developer, I am comfortable integrating both layers into complete, production-ready applications.
+
+I value clean code, problem-solving, and continuous learning. I am comfortable working independently as well as in team-based environments, following best practices such as version control (Git), modular architecture, and secure coding standards. I am eager to contribute to real-world projects while continuing to grow my technical and professional skills.
+
+I would welcome the opportunity to discuss how my skills and enthusiasm can add value to your team. Thank you for your time and consideration.
+
+Here is my portfolio and Github link:
+Portfolio: sohaibali.vercel.app
+Github: github.com/sohaibsaadat
+
+Sincerely,
+Sohaib Ali`,
   time: "9:30 AM",
   date: "2026-07-22",
   read: true,
   starred: true,
   important: false,
   folder: "Inbox",
-  hasAttachment: false,
-},
+  attachments: [
+  { name: "Sohaib Ali CV.pdf", size: "615 KB", url: "/files/cv.pdf" }
+]},
 {
   id: 13,
   sender: "Bilal Sheikh",
@@ -207,8 +226,9 @@ export const emails = [
   starred: true,
   important: true,
   folder: "Inbox",
-  hasAttachment: false,
-},
+  attachments: [
+  { name: "Sohaib Ali CV.pdf", size: "615 KB", url: "/files/cv.pdf" }
+]},
 {
   id: 16,
   sender: "Fatima Zahra",
