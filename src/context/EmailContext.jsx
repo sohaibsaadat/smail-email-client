@@ -48,7 +48,6 @@ export const EmailProvider = ({ children }) => {
             if (response.data.success) {
                 setEmails(response.data.emails);
 
-                console.log(response.data.emails);
                 
             }
         } catch (error) {
@@ -60,7 +59,6 @@ export const EmailProvider = ({ children }) => {
         const token = localStorage.getItem("token");
         if (token) {
             getMail();
-            console.log(emails);
             
         }
     }, []);
@@ -104,7 +102,6 @@ export const EmailProvider = ({ children }) => {
         });
     };
 useEffect(() => {
-    console.log("🔥 EMAILS STATE CHANGED:", emails);
 }, [emails]);
     // ✅ All handlers
     const handleSelectEmail = (id) => {
