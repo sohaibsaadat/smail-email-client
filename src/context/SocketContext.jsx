@@ -20,7 +20,7 @@ export const SocketProvider = ({ children }) => {
         const user = JSON.parse(localStorage.getItem('user') || '{}');
         
         // Connect to Socket.IO server
-        const newSocket = io('http://localhost:5000', {
+        const newSocket = io(import.meta.env.VITE_BACKEND, {
             withCredentials: true,
             transports: ['websocket', 'polling']
         });
