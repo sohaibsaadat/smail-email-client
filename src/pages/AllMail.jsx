@@ -4,6 +4,8 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import { useEmail } from '../context/EmailContext';
 import { useResponsiveSlice } from '../hooks/useResponsiveSlice';
+import { useOutletContext } from 'react-router-dom';
+
 
 const AllMail = ({ open }) => {
   const { emails, selectedEmails, handleSelectEmail, readMail, handleEmailClick, formatEmailDate, starredMail } = useEmail();
